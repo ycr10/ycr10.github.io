@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>题解 P2952 ([USACO09OPEN]Cow Line S)</title>
+    <url>/2021/02/12/%E9%A2%98%E8%A7%A3-P2952-USACO09OPEN-Cow-Line-S/</url>
+    <content><![CDATA[<p><del>这是一位萌新的第一篇题解,求关照qwq</del></p>
+<p><a class="link"   href="https://www.luogu.com.cn/problem/P2952" >题目传送门<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="解法由来"><a href="#解法由来" class="headerlink" title="解法由来"></a>解法由来</h2><p>这一题当然是<del>直接使用</del>deque啦</p>
+<p>（不会deque的蒟蒻</p>
+<p>那就用vector暴力模拟！</p>
+<h3 id="vector简介"><a href="#vector简介" class="headerlink" title="vector简介"></a>vector简介</h3><p>头文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure>
+<p>创建一个vertor对象</p>
+<p>类型有很多种 char int string 等等</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; v;</span><br></pre></td></tr></table></figure>
+<p><del>看到这里，你应该会有疑问</del></p>
+<p>怎么访问vector函数中的一个数呢？</p>
+<p>有俩种实现方式</p>
+<p>1.直接下标访问 就像int型数组一样</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">…… &#x2F;&#x2F;省略头文件以及定义(雾</span><br><span class="line">cout&lt;&lt;v[i];</span><br></pre></td></tr></table></figure>
+<p>2.迭代器访问 <del>一种很简洁的访问方式</del></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt;::iterator it;</span><br><span class="line">for(it&#x3D;vec.begin();it!&#x3D;vec.end();it++) cout&lt;&lt;*it&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<h2 id="来说说这题吧"><a href="#来说说这题吧" class="headerlink" title="来说说这题吧"></a>来说说这题吧</h2><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>首先，这需要用一个vector类型的数组来记录。</p>
+<p>遇到’AL’ 就左边加</p>
+<p>遇到’AR’ 就右边加</p>
+<p><del>添加的函数详情看代码注释</del></p>
+<p>以此类推</p>
+<p>最后，再用迭代器或者for循环语句输出不就<del>完美</del>了？？</p>
+<h2 id="淦代码"><a href="#淦代码" class="headerlink" title="淦代码"></a><del>淦代码</del></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; //本篇重点 vector头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; <span class="comment">// 模板中的头文件(不要问我为什么不用万能头</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b; <span class="comment">//先定义个数组啊</span></span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>,s,k;</span><br><span class="line"><span class="keyword">char</span> a;        <span class="comment">//一些辅助的数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="comment">//荒废n久的快读</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	ll f=<span class="number">1</span>,s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)f=<span class="number">-1</span>,c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+c<span class="number">-48</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f*s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s; <span class="comment">//先读入S</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s;i++) <span class="comment">//开始循环</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="string">&#x27;A&#x27;</span>) <span class="comment">//进入</span></span><br><span class="line">		&#123;</span><br><span class="line">			sum++;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>) b.insert(b.begin(),sum); <span class="comment">//如果是在左边加，就用insert函数加入</span></span><br><span class="line">			<span class="keyword">else</span> b.push_back(sum); <span class="comment">//或者在右边，用push_back函数加入</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">//否则</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;k;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>)b.erase(b.begin(),b.begin()+k); <span class="comment">//如果是在左边删k个，就用erase函数+迭代器</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++) b.pop_back(); <span class="comment">//否则在右边，就用循环+pop_back函数</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;b.size();i++) <span class="built_in">cout</span>&lt;&lt;b[i]&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出~</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//记得擦屁股~养成良好习惯~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><del>看，这不就淦完了？</del></p>
+<p> 各位大佬有什么意见，欢迎评论QWQ</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+</search>
