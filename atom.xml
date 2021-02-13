@@ -6,7 +6,7 @@
   <link href="https://ycr10.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://ycr10.gitee.io/"/>
-  <updated>2021-02-12T23:58:33.057Z</updated>
+  <updated>2021-02-13T04:44:59.928Z</updated>
   <id>https://ycr10.gitee.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何Arduino Mega 2560 实现一个家庭智能安防门锁?</title>
+    <link href="https://ycr10.gitee.io/2021/02/13/%E5%A6%82%E4%BD%95Arduino-Mega-2560-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E9%97%A8%E9%94%81/"/>
+    <id>https://ycr10.gitee.io/2021/02/13/%E5%A6%82%E4%BD%95Arduino-Mega-2560-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E9%97%A8%E9%94%81/</id>
+    <published>2021-02-13T04:45:02.000Z</published>
+    <updated>2021-02-13T04:44:59.928Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>寄生虫 影评摘录</title>
