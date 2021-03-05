@@ -104,6 +104,309 @@
   <entry>
     <title>如何Arduino Mega 2560 实现一个家庭智能安防门锁?</title>
     <url>/2021/02/13/%E5%A6%82%E4%BD%95Arduino-Mega-2560-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E9%97%A8%E9%94%81/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="智能门锁-说明文档"><a href="#智能门锁-说明文档" class="headerlink" title="智能门锁 说明文档"></a>智能门锁 说明文档</h1><h2 id="创作灵感"><a href="#创作灵感" class="headerlink" title="创作灵感"></a>创作灵感</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;新冠肺炎疫情发生以来，习近平总书记高度重视，多次主持召开会议对疫情防控工作进行研究部署，并对如何发挥社区在疫情防控中的作用提出明确要求。习近平总书记指出，要压实地方党委和政府责任，强化社区防控网格化管理，实施地毯式排查，采取更加严格、更有针对性、更加管用有效的措施，防止疫情蔓延。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;本人以社区和家庭疫情防控为出发点，设计了一款智慧防疫门禁系统。本次设计的作品能够实现刷卡，蓝牙开锁等方式开启家庭门锁，同时实时监测人的体温，贴心的提示外出回家的人员消毒。防止体温过热人员回家接触家人，造成病情蔓延。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;这样一个可以让人们在享受智慧家居便利性的同时，又能监测健康状况的智慧防疫门禁系统，能够很好地配合社区疫情防控，做好家庭防疫工作。</p>
+<h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;这是一种无接触式的门锁，自然就要用到现在成熟的无线技术了。在这种小型门锁中，蓝牙技术再好不过了。再利用<code>RFID-RC522</code>模块，也能实现NFC通信。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; 疫情期间，大家对自己的健康也有极大的要求。家庭门锁也要实时监控自己的体温以及客人的体温。如果你的体温超过37.3摄氏度，那智能门锁也会利用LED灯以及蜂鸣器来警告你，同时也会紧闭门锁，做好疫情防控第一步。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;直观的设计思路以及功能原理图如图1所示：</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBbGD.png"></p>
+<p>图1 设计思路及功能原理图</p>
+<h2 id="硬件一览"><a href="#硬件一览" class="headerlink" title="硬件一览"></a>硬件一览</h2><blockquote>
+<p>主控板：</p>
+<p>Arduino Mega 2560 *1</p>
+<p>配件：</p>
+<p>RFID-RC522模块 *1</p>
+<p>DX-BT05蓝牙模块 *1</p>
+<p>FL-3FF-S-Z继电器模块 *1</p>
+<p>蜂鸣器 *1</p>
+<p>电磁锁 *1</p>
+<p>LED *3</p>
+<p>220Ω电阻 *3</p>
+</blockquote>
+<h2 id="接线图"><a href="#接线图" class="headerlink" title="接线图"></a>接线图</h2><table>
+<thead>
+<tr>
+<th align="center">模块名称</th>
+<th align="center">模块针脚</th>
+<th align="center">Aruduino Mega针脚</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Relay Mode</td>
+<td align="center">VCC</td>
+<td align="center">5V</td>
+</tr>
+<tr>
+<td align="center">Relay Mode</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">Relay Mode</td>
+<td align="center">IN</td>
+<td align="center">D5</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">IRQ</td>
+<td align="center">D10</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">SCK</td>
+<td align="center">D8</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">MOSI</td>
+<td align="center">D9</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">MISO</td>
+<td align="center">D11</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">SDA</td>
+<td align="center">D7</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">RST</td>
+<td align="center">D12</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">3.3V</td>
+<td align="center">3.3V</td>
+</tr>
+<tr>
+<td align="center">RFID-RC522</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">Buzzer</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">Buzzer</td>
+<td align="center">VCC</td>
+<td align="center">5V</td>
+</tr>
+<tr>
+<td align="center">Buzzer</td>
+<td align="center">I/O</td>
+<td align="center">D2</td>
+</tr>
+<tr>
+<td align="center">DX-BT05</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">DX-BT05</td>
+<td align="center">VCC</td>
+<td align="center">5V</td>
+</tr>
+<tr>
+<td align="center">DX-BT05</td>
+<td align="center">TX</td>
+<td align="center">RX</td>
+</tr>
+<tr>
+<td align="center">DX-BT05</td>
+<td align="center">RX</td>
+<td align="center">TX</td>
+</tr>
+<tr>
+<td align="center">DX-BT05</td>
+<td align="center">EN</td>
+<td align="center">5V</td>
+</tr>
+<tr>
+<td align="center">mlx90614</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">mlx90614</td>
+<td align="center">VCC</td>
+<td align="center">VCC</td>
+</tr>
+<tr>
+<td align="center">mlx90614</td>
+<td align="center">SDA</td>
+<td align="center">SDA</td>
+</tr>
+<tr>
+<td align="center">mlx90614</td>
+<td align="center">SCL</td>
+<td align="center">SCL</td>
+</tr>
+<tr>
+<td align="center">LED-Red</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">LED-Red</td>
+<td align="center">VCC</td>
+<td align="center">220Ω电阻端</td>
+</tr>
+<tr>
+<td align="center">LED-Yellow</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">LED-Yellow</td>
+<td align="center">VCC</td>
+<td align="center">220Ω电阻端</td>
+</tr>
+<tr>
+<td align="center">LED-Green</td>
+<td align="center">GND</td>
+<td align="center">GND</td>
+</tr>
+<tr>
+<td align="center">LED-Green</td>
+<td align="center">VCC</td>
+<td align="center">220Ω电阻端</td>
+</tr>
+<tr>
+<td align="center">220Ω电阻</td>
+<td align="center">一端</td>
+<td align="center">5V</td>
+</tr>
+<tr>
+<td align="center">220Ω电阻</td>
+<td align="center">另一端</td>
+<td align="center">LED</td>
+</tr>
+</tbody></table>
+<hr>
+<p>仿真接线图如下</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBHPO.png"></p>
+<p>图2 仿真接线图</p>
+<h2 id="制作过程"><a href="#制作过程" class="headerlink" title="制作过程"></a>制作过程</h2><ol>
+<li>准备木板，设计家庭木门外观：<ul>
+<li>使用切割机切割木板，得到前门和侧门</li>
+<li>在前门中间安装电磁锁</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBIVx.jpg"></p>
+<ol>
+<li>门板正面外观和组装设计：<ul>
+<li>使用电钻钻出三个LED发光二极管</li>
+<li>在门板上沿安装红外温度检测模块</li>
+<li>在门板上沿安装LCD液晶显示屏</li>
+<li>在门板右上角画门禁图案</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBoa6.jpg"></p>
+<ol start="3">
+<li>门板背面外观和组装设计<ul>
+<li>安装电池盒和继电器开关</li>
+<li>安装Arduino电路板</li>
+<li>安装门禁卡</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBTIK.jpg"></p>
+<ol start="4">
+<li>组装木板以及组接各个模块<ul>
+<li>将木板前门和侧边墙壁组装</li>
+<li>接线并通电</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBqRe.jpg"></p>
+<ol start="5">
+<li>测试各个模块功能以及两种开锁方式<ul>
+<li>IC门禁卡开锁</li>
+<li>手机蓝牙开锁</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBLxH.jpg"><br><img src="https://s3.ax1x.com/2021/03/05/6mBXMd.jpg"></p>
+<h2 id="成品外观"><a href="#成品外观" class="headerlink" title="成品外观"></a>成品外观</h2><p><img src="https://s3.ax1x.com/2021/03/05/6mBjsA.jpg"></p>
+<p>图3 成品外观正面</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBzZt.jpg"></p>
+<p>图4 成品外观侧面</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBvqI.jpg"></p>
+<p>图5 成品外观背面</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mDSdP.jpg"></p>
+<p>图6 成品外观俯视图</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;这个家庭智能门锁提供多种开锁方式，你可以使用IC卡或者手机蓝牙打开他它。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;门锁上有三个LED灯，若红灯常亮即为待机状态;绿灯亮起，蜂鸣器鸣叫两声，表示锁已打开;黄灯闪烁两次，蜂鸣器鸣叫三声，表示体温过高;红绿黄三灯亮起，蜂鸣器长鸣，即表示密码错误。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;当你想要使用IC卡进行开锁操作，仅需将正确的IC卡放置到读卡区域，IC卡读到后，将会自动打开。使用蓝牙开锁时，仅需连接上<code>Smart-lock</code>蓝牙，通过串口发送密码，即可打开门锁。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;rfid1.h&quot;</span> <span class="comment">//调用读卡器模块库文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Adafruit_MLX90614.h&quot;</span> <span class="comment">//调用温度传感器库文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;LiquidCrystal_I2C.h&quot;</span> <span class="comment">//调用LCD库文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Wire.h&gt; //调用库文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uint  unsigned int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Red  45</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Green 47</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Yellow 49</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Buzzer 2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Relay 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IRQ 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SCK 8</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOSI 9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MISO 11</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SDA 7</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RST 12 <span class="comment">//接口定义 详情见说明文档接线图</span></span></span><br><span class="line">RFID1 rfid;</span><br><span class="line">Adafruit_MLX90614 mlx = Adafruit_MLX90614(); <span class="comment">//测温模块初始化</span></span><br><span class="line"><span class="function">LiquidCrystal_I2C <span class="title">lcd</span><span class="params">(<span class="number">0x27</span>,<span class="number">16</span>,<span class="number">2</span>)</span></span>; <span class="comment">//lcd模块初始化</span></span><br><span class="line">uchar serNum[<span class="number">5</span>];</span><br><span class="line">uchar a;</span><br><span class="line">uint b; </span><br><span class="line"><span class="keyword">double</span> tem; <span class="comment">//一些用于记录数据的变量 数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> <span class="comment">//初始化函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>); <span class="comment">//电脑(测试)串口初始化</span></span><br><span class="line">  Serial2.begin(<span class="number">9600</span>); <span class="comment">//蓝牙模块串口初始化</span></span><br><span class="line">  pinMode(Buzzer,OUTPUT);</span><br><span class="line">  pinMode(Relay,OUTPUT); </span><br><span class="line">  pinMode(Red,OUTPUT);</span><br><span class="line">  pinMode(Yellow,OUTPUT);</span><br><span class="line">  pinMode(Green,OUTPUT); <span class="comment">//IO引脚声明</span></span><br><span class="line">  rfid.begin(IRQ,SCK,MOSI,MISO,SDA,RST); <span class="comment">//RFID模块引脚声明</span></span><br><span class="line">  mlx.begin(); <span class="comment">//温度计初始化</span></span><br><span class="line">  rfid.init(); <span class="comment">//RFID初始化</span></span><br><span class="line">  lcd.init(); <span class="comment">//lcd模块初始化</span></span><br><span class="line">  lcd.backlight(); <span class="comment">//lcd模块背光</span></span><br><span class="line">  lcd.print(<span class="string">&quot;   Smart-lock   &quot;</span>); <span class="comment">//lcd输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TEM</span><span class="params">()</span> <span class="comment">//测温函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.println(mlx.readObjectTempC()+<span class="number">5</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">  tem=mlx.readObjectTempC()+<span class="number">5</span>; <span class="comment">//常量赋值</span></span><br><span class="line">  <span class="keyword">return</span> tem+<span class="number">5</span>; <span class="comment">//返回读取的温度值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> <span class="comment">//开门函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(tem&lt;=<span class="number">37.3</span>) <span class="comment">//如果体温不超过37.3摄氏度，即可开门</span></span><br><span class="line">  &#123;</span><br><span class="line">    lcd.clear();</span><br><span class="line">    lcd.setCursor(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    lcd.print(<span class="string">&quot;Temperature OK&quot;</span>);</span><br><span class="line">    lcd.setCursor(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    lcd.print(<span class="string">&quot;Temp is: &quot;</span>);</span><br><span class="line">    lcd.print(tem);</span><br><span class="line">    lcd.print(<span class="string">&quot;*C&quot;</span>); <span class="comment">//lcd输出</span></span><br><span class="line">    Serial.println(<span class="string">&quot;Temperature OK&quot;</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">    Serial2.println(<span class="string">&quot;Temperature OK&quot;</span>); <span class="comment">//蓝牙串口输出</span></span><br><span class="line">    Serial.print(<span class="string">&quot;Turn on.&quot;</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">    Serial2.print(<span class="string">&quot;Turn on.&quot;</span>); <span class="comment">//蓝牙串口输出</span></span><br><span class="line">    digitalWrite(Red,LOW);</span><br><span class="line">    digitalWrite(Green,HIGH);</span><br><span class="line">    digitalWrite(Relay,LOW);</span><br><span class="line">    digitalWrite(Buzzer,LOW); <span class="comment">//绿灯亮起，并打开电磁锁（继电器）</span></span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,HIGH);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,LOW);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,HIGH); <span class="comment">//蜂鸣器鸣叫两声，代表锁已开</span></span><br><span class="line">    digitalWrite(Relay,HIGH); <span class="comment">//锁关闭</span></span><br><span class="line">    digitalWrite(Green,LOW);</span><br><span class="line">    digitalWrite(Red,HIGH); <span class="comment">//红灯重新亮起</span></span><br><span class="line">    lcd.clear();</span><br><span class="line">    lcd.setCursor(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    lcd.print(<span class="string">&quot;   Smart-lock   &quot;</span>); <span class="comment">//lcd输出</span></span><br><span class="line">    Serial.print(<span class="string">&quot;Turn off.&quot;</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">    Serial2.print(<span class="string">&quot;Turn off.&quot;</span>); <span class="comment">//蓝牙串口输出</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="comment">//体温超过37.3摄氏度</span></span><br><span class="line">  &#123;</span><br><span class="line">    lcd.clear();</span><br><span class="line">    lcd.setCursor(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    lcd.print(<span class="string">&quot;Temperature HIGH&quot;</span>);</span><br><span class="line">    lcd.setCursor(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    lcd.print(<span class="string">&quot;Temp is: &quot;</span>);</span><br><span class="line">    lcd.print(tem);</span><br><span class="line">    lcd.print(<span class="string">&quot;*C&quot;</span>); <span class="comment">//lcd输出</span></span><br><span class="line">    Serial.println(<span class="string">&quot;Temperature HIGH&quot;</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">    Serial2.println(<span class="string">&quot;Temperature HIGH&quot;</span>); <span class="comment">//蓝牙串口输出</span></span><br><span class="line">    digitalWrite(Red,LOW);</span><br><span class="line">    digitalWrite(Yellow,HIGH);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Yellow,LOW);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Yellow,HIGH);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Yellow,LOW);</span><br><span class="line">    digitalWrite(Red,HIGH); <span class="comment">//黄灯闪烁两次，红灯重新亮起</span></span><br><span class="line">    digitalWrite(Buzzer,LOW);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,HIGH);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,LOW);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,HIGH);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,LOW);</span><br><span class="line">    delay(<span class="number">100</span>);</span><br><span class="line">    digitalWrite(Buzzer,HIGH); <span class="comment">//蜂鸣器鸣叫三声，表示温度过高</span></span><br><span class="line">    lcd.clear();</span><br><span class="line">    lcd.print(<span class="string">&quot;   Smart-lock   &quot;</span>); <span class="comment">//lcd输出</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> <span class="comment">//主循环函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  uchar status;</span><br><span class="line">  uchar str[MAX_LEN];</span><br><span class="line">  digitalWrite(Relay,HIGH);</span><br><span class="line">  digitalWrite(Buzzer,HIGH);</span><br><span class="line">  digitalWrite(Red,HIGH);</span><br><span class="line">  digitalWrite(Yellow,LOW);</span><br><span class="line">  digitalWrite(Green,LOW); <span class="comment">//初始化</span></span><br><span class="line">  TEM(); <span class="comment">//测温</span></span><br><span class="line">  status = rfid.request(PICC_REQIDL, str);</span><br><span class="line">  rfid.showCardType(str);</span><br><span class="line">  status=rfid.anticoll(str);</span><br><span class="line">  <span class="keyword">if</span>(status==MI_OK)</span><br><span class="line">  &#123;</span><br><span class="line">    Serial.print(<span class="string">&quot;The card&#x27;s number is: &quot;</span>); <span class="comment">//调试串口输出</span></span><br><span class="line">    <span class="built_in">memcpy</span>(serNum,str,SCK);</span><br><span class="line">    rfid.showCardID(serNum);</span><br><span class="line">    Serial.println();</span><br><span class="line">    Serial.println();</span><br><span class="line">  &#125;</span><br><span class="line">  uchar* id=serNum; <span class="comment">//读取卡的ID  </span></span><br><span class="line">  <span class="keyword">if</span>(Serial2.available()&gt;<span class="number">0</span>)  <span class="comment">//如果蓝牙模块串口有读到信息</span></span><br><span class="line">  &#123;</span><br><span class="line">    a=Serial2.read(); <span class="comment">//蓝牙串口读取</span></span><br><span class="line">    b=<span class="number">1</span>; <span class="comment">//一个用于记录是否执行的变量</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(id[<span class="number">0</span>]==<span class="number">0xCA</span> &amp;&amp; id[<span class="number">1</span>]==<span class="number">0xD9</span> &amp;&amp; id[<span class="number">2</span>]==<span class="number">0xF0</span> &amp;&amp; id[<span class="number">3</span>]==<span class="number">0x3F</span>) <span class="comment">//如果读到了正确的卡</span></span><br><span class="line">  &#123;</span><br><span class="line">    open(); <span class="comment">//执行开门函数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">3</span>;i++) id[i]=<span class="number">0</span>; <span class="comment">//初始值返回0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">3</span>;i++) serNum[i]=<span class="number">0</span>; <span class="comment">//初始值返回0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="comment">//如果不是正确的卡</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span>(status==MI_OK) <span class="comment">//且有读到卡，执行不开门</span></span><br><span class="line">    &#123;</span><br><span class="line">      lcd.clear();</span><br><span class="line">      lcd.println(<span class="string">&quot;Password Error&quot;</span>);  <span class="comment">//lcd输出</span></span><br><span class="line">      digitalWrite(Yellow,HIGH);</span><br><span class="line">      digitalWrite(Green,HIGH);</span><br><span class="line">      digitalWrite(Buzzer,LOW); <span class="comment">//红黄蓝三灯常亮，蜂鸣器响起</span></span><br><span class="line">      delay(<span class="number">3000</span>);</span><br><span class="line">      digitalWrite(Buzzer,HIGH);</span><br><span class="line">      digitalWrite(Yellow,LOW);</span><br><span class="line">      digitalWrite(Green,LOW); <span class="comment">//灯熄灭，蜂鸣器停止，代表密码错误</span></span><br><span class="line">      lcd.clear();</span><br><span class="line">      lcd.print(<span class="string">&quot;   Smart-lock   &quot;</span>);  <span class="comment">//lcd输出</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(a==<span class="string">&#x27;a&#x27;</span>) <span class="comment">//如果蓝牙串口读到密码</span></span><br><span class="line">  &#123;</span><br><span class="line">    b=<span class="number">0</span>; <span class="comment">//记录的变量值归零</span></span><br><span class="line">    open(); <span class="comment">//执行开门函数</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="comment">//若密码错误</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">1</span>) <span class="comment">//且有接收到数据，执行不开门</span></span><br><span class="line">    &#123;</span><br><span class="line">      lcd.clear();</span><br><span class="line">      lcd.println(<span class="string">&quot;Password Error&quot;</span>);  <span class="comment">//lcd输出</span></span><br><span class="line">      digitalWrite(Yellow,HIGH);</span><br><span class="line">      digitalWrite(Green,HIGH);</span><br><span class="line">      digitalWrite(Buzzer,LOW); <span class="comment">//红黄蓝三灯常亮，蜂鸣器响起</span></span><br><span class="line">      delay(<span class="number">3000</span>);</span><br><span class="line">      digitalWrite(Buzzer,HIGH);</span><br><span class="line">      digitalWrite(Yellow,LOW);</span><br><span class="line">      digitalWrite(Green,LOW); <span class="comment">//灯熄灭，蜂鸣器停止，代表密码错误</span></span><br><span class="line">      lcd.clear(); </span><br><span class="line">      lcd.println(<span class="string">&quot;Password Error&quot;</span>);  <span class="comment">//lcd输出</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  rfid.halt(); <span class="comment">//RFID-RC522重置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>智能硬件</category>
+      </categories>
+      <tags>
+        <tag>Arduino</tag>
+        <tag>智能硬件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人环境简介 NO.1 - Wsl 2</title>
+    <url>/2021/03/05/%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-1-Wsl-2/</url>
+    <content><![CDATA[<h1 id="个人环境简介-NO-1-Wsl-2"><a href="#个人环境简介-NO-1-Wsl-2" class="headerlink" title="个人环境简介 NO.1 - Wsl 2"></a>个人环境简介 NO.1 - Wsl 2</h1><p>Windows 10 预览体验计划 Dev渠道 + Wsl 2 + Ubuntu 20.04 + Visual Studio Code</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><del>学生党卑微++</del> </p>
+<p>家里就一台电脑，众所周知的<del>windows命令行</del>都很……</p>
+<p>windows + linux双系统切换又很<del>废物</del>。</p>
+<p>所以就用 Wsl 2 来救命一波。</p>
+<h3 id="WSL-是个啥"><a href="#WSL-是个啥" class="headerlink" title="WSL 是个啥"></a>WSL 是个啥</h3><blockquote>
+<p>Windows Subsystem for Linux（简称WSL）是一个在Windows 10上能够运行原生Linux二进制可执行文件（ELF格式）的兼容层。</p>
+</blockquote>
+<p>目前 Wsl 已经更新到了 Wsl 2 。Wsl 2 相比于 Wsl 1 更加成熟了，内核更加的完整了。</p>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EPk9K.png" alt="Microsoft 官方图片"></p>
+<p>另外，Wsl 2 已经成为了一个完整的虚拟机，而 Wsl 1 <del>并不是（个人觉得这也成了一个槽点，后面细说）</del>，虽然<del>理论上</del>和VM没什么差别，单着毕竟是Microsoft亲手调教的~ </p>
+<h3 id="如何安装-WSL-2"><a href="#如何安装-WSL-2" class="headerlink" title="如何安装 WSL 2"></a>如何安装 WSL 2</h3><p>我就不扯理论了，直接最简单的方法处理。</p>
+<ol>
+<li>打开 <code>启用或关闭 Windows 功能</code></li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EPih6.png" alt="启用或关闭Windows功能"></p>
+<ol start="2">
+<li>打开 <code>适用于 Linux 的 Windows 子系统</code> </li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mBJ58.png" alt="适用于 Linux 的 Windows 子系统"></p>
+<ol start="3">
+<li>打开 <code>Microsoft Store</code> 下载安装 <code>Ubuntu 20.04</code> 应用</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EPLVA.png" alt="Ubuntu20.04"></p>
+<ol start="4">
+<li>打开它</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EilZ9.png" alt="Ubuntu"></p>
+<ol start="5">
+<li><p>等一会，就会自动初始化，然后输入账号密码</p>
+<p><del>PS:Linux账号密码是会隐藏处理，所以输入没显示是正常的</del></p>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EFkOe.png" alt="初始化"></p>
+<ol start="6">
+<li><p><code>嘤嘤嘤,Windows命令行太丑了怎么办嘛？当然是Terminal啦！</code></p>
+<p> <del>PS: Windows Terminal 网上配置较多，大家可以钻研自己的爱好，我这不做介绍。</del></p>
+</li>
+<li><p>安装并打开 <code>Windows Terminal</code> ，可以看到已经出现了 <code>Ubuntu 20.04</code> 的选项<br>。</p>
+</li>
+<li><p>然后就可以开始各位自己的 <code>Linux</code> 配置了。 </p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>环境简介</category>
+      </categories>
+      <tags>
+        <tag>系统环境</tag>
+      </tags>
   </entry>
 </search>
