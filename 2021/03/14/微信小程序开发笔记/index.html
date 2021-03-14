@@ -9,7 +9,7 @@
     
     <title>
         
-            个人环境简介 NO.1 - Wsl 2 |
+            微信小程序开发笔记 |
         
         Ycr&#39;s Blog
     </title>
@@ -190,7 +190,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">个人环境简介 NO.1 - Wsl 2</span>
+            <span class="title-hover-animation">微信小程序开发笔记</span>
         </div>
 
         
@@ -208,7 +208,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-03-05 18:57:15
+        <i class="fas fa-edit"></i>&nbsp;2021-03-14 18:18:57
     </span>
     
         <span class="article-categories article-meta-item">
@@ -216,7 +216,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B/">环境简介</a>&nbsp;
+                        <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a>&nbsp;
                     </li>
                 
             </ul>
@@ -228,7 +228,19 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83/">系统环境</a>&nbsp;
+                        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/MQTT/">MQTT</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
                     </li>
                 
             </ul>
@@ -251,49 +263,66 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="个人环境简介-NO-1-Wsl-2"><a href="#个人环境简介-NO-1-Wsl-2" class="headerlink" title="个人环境简介 NO.1 - Wsl 2"></a>个人环境简介 NO.1 - Wsl 2</h1><p>Windows 10 预览体验计划 Dev渠道 + Wsl 2 + Ubuntu 20.04 + Visual Studio Code</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><del>学生党卑微++</del> </p>
-<p>家里就一台电脑，众所周知的<del>windows命令行</del>都很……</p>
-<p>windows + linux双系统切换又很<del>废物</del>。</p>
-<p>所以就用 Wsl 2 来救命一波。</p>
-<h3 id="WSL-是个啥"><a href="#WSL-是个啥" class="headerlink" title="WSL 是个啥"></a>WSL 是个啥</h3><blockquote>
-<p>Windows Subsystem for Linux（简称WSL）是一个在Windows 10上能够运行原生Linux二进制可执行文件（ELF格式）的兼容层。</p>
-</blockquote>
-<p>目前 Wsl 已经更新到了 Wsl 2 。Wsl 2 相比于 Wsl 1 更加成熟了，内核更加的完整了。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EPk9K.png" alt="Microsoft 官方图片"></p>
-<p>另外，Wsl 2 已经成为了一个完整的虚拟机，而 Wsl 1 <del>并不是（个人觉得这也成了一个槽点，后面细说）</del>，虽然<del>理论上</del>和VM没什么差别，单着毕竟是Microsoft亲手调教的~ </p>
-<h3 id="如何安装-WSL-2"><a href="#如何安装-WSL-2" class="headerlink" title="如何安装 WSL 2"></a>如何安装 WSL 2</h3><p>我就不扯理论了，直接最简单的方法处理。</p>
-<ol>
-<li>打开 <code>启用或关闭 Windows 功能</code></li>
+            <h1 id="微信小程序开发笔记"><a href="#微信小程序开发笔记" class="headerlink" title="微信小程序开发笔记"></a>微信小程序开发笔记</h1><p>我最近正在研究一个有关于手机监控的系统，就想到了用微信小程序来作为手机端与其他的硬件进行通信。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>微信开发者工具</li>
+<li>Visual Studio Code  <del>(我觉得微信开发者工具太丑了，还是用vscode吧)</del></li>
 </ol>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EPih6.png" alt="启用或关闭Windows功能"></p>
+<h2 id="Viscual-Studio-Code-插件准备"><a href="#Viscual-Studio-Code-插件准备" class="headerlink" title="Viscual Studio Code 插件准备"></a>Viscual Studio Code 插件准备</h2><ol>
+<li><p>小程序助手</p>
+<p>让vscode 提供对 .wxss .wxml 文件后缀的支持</p>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/606LUe.png" alt="1.png"></p>
 <ol start="2">
-<li>打开 <code>适用于 Linux 的 Windows 子系统</code> </li>
+<li><p>wxml</p>
+<p>高亮显示</p>
+</li>
 </ol>
-<p><img src="https://s3.ax1x.com/2021/03/05/6mBJ58.png" alt="适用于 Linux 的 Windows 子系统"></p>
+<p><img src="https://s3.ax1x.com/2021/03/14/606Tu6.png" alt="2.png"></p>
 <ol start="3">
-<li>打开 <code>Microsoft Store</code> 下载安装 <code>Ubuntu 20.04</code> 应用</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EPLVA.png" alt="Ubuntu20.04"></p>
-<ol start="4">
-<li>打开它</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EilZ9.png" alt="Ubuntu"></p>
-<ol start="5">
-<li><p>等一会，就会自动初始化，然后输入账号密码</p>
-<p><del>PS:Linux账号密码是会隐藏处理，所以输入没显示是正常的</del></p>
+<li><p>vscode weapp api</p>
+<p>小程序代码片段</p>
 </li>
 </ol>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EFkOe.png" alt="初始化"></p>
-<ol start="6">
-<li><p><code>嘤嘤嘤,Windows命令行太丑了怎么办嘛？当然是Terminal啦！</code></p>
-<p> <del>PS: Windows Terminal 网上配置较多，大家可以钻研自己的爱好，我这不做介绍。</del></p>
-</li>
-<li><p>安装并打开 <code>Windows Terminal</code> ，可以看到已经出现了 <code>Ubuntu 20.04</code> 的选项<br>。</p>
-</li>
-<li><p>然后就可以开始各位自己的 <code>Linux</code> 配置了。 </p>
-</li>
+<p><img src="https://s3.ax1x.com/2021/03/14/606Ijx.png" alt="3.png"></p>
+<p>这样多好看~</p>
+<p>放张图对比下</p>
+<ol>
+<li>微信开发者工具</li>
 </ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/60gQyt.png" alt="5.png"></p>
+<ol>
+<li>Visual Studio Code</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/60glOP.png" alt="4.png"></p>
+<p>飞起来~</p>
+<p><del>(虽然调试还是得用微信开发者工具)</del></p>
+<p><del>屑腾讯</del></p>
+<h2 id="使用Mqtt协议连接阿里云物联网平台"><a href="#使用Mqtt协议连接阿里云物联网平台" class="headerlink" title="使用Mqtt协议连接阿里云物联网平台"></a>使用Mqtt协议连接阿里云物联网平台</h2><p>要在微信小程序中使用 <code>websocket</code> 就必须遵守 <del>腾讯</del> 的规则。</p>
+<blockquote>
+<p>1.不能使用特殊的端口，仅可使用 <code>443</code> 端口，即 <code>https</code> 端口进行通信。<br>2.连接的host地址前要加 <code>wss://</code> 且不能在后面加端口号。（如 <code>mqtt.ycr10.xyz</code> 写成 <code>wss://mqtt.ycr10.xyz</code> ，而不能写成 <code> wss://matt.ycr10.xyz:443</code> ）</p>
+</blockquote>
+<h2 id="讲几个mqtt常用的函数"><a href="#讲几个mqtt常用的函数" class="headerlink" title="讲几个mqtt常用的函数"></a>讲几个mqtt常用的函数</h2><p>了解了 <code>host</code>规则后，就要开始正式连接了。</p>
+<p>这里我使用的是广为人知的 <a target="_blank" rel="noopener" href="https://github.com/mqttjs/MQTT.js/"><code>MQTT.js</code></a> 库，这是出了名的好用。</p>
+<p>这里简单讲几个常用的操作，如有错误欢迎评论区提出。<del>（我只是一个初二的蒟蒻）</del></p>
+<h3 id="mqtt-connect"><a href="#mqtt-connect" class="headerlink" title="mqtt.connect()"></a>mqtt.connect()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mqtt.connect(host,options);</span><br></pre></td></tr></table></figure>
+<p>这是一个连接函数，<code>host</code> 是连接服务器的网址， <code>options</code> 存放一些参数的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">      connectTimeout: <span class="number">4000</span>,</span><br><span class="line">      clientId: <span class="string">&#x27;****|securemode=*,signmethod=****|&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的Mqtt-ClientID</span></span><br><span class="line">      port: <span class="number">443</span>, <span class="comment">// 端口号，似乎只能443</span></span><br><span class="line">      username: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的用户名</span></span><br><span class="line">      password: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的密码</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这些详细的配置可以看<a class="link"   target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/86706.html?accounttraceid=939d8fae0d484be685d1f2a99cab9d70mmww" >阿里云的官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="client-subscribe"><a href="#client-subscribe" class="headerlink" title="client.subscribe()"></a>client.subscribe()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">client.subscribe(topic，&#123;</span><br><span class="line">   qos: <span class="number">0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这是一个订阅主题的函数， <code>topic</code> 是你要订阅的函数，后面还可以放一些拓展参数。</p>
+<p>注： <code>qos</code> 是MQTT设计的一套保证消息稳定传输的机制。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">client.subscribe(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>, &#123;</span><br><span class="line">        qos: <span class="number">0</span></span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&quot;订阅成功&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="client-publish"><a href="#client-publish" class="headerlink" title="client.publish()"></a>client.publish()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.publish(topic,message);</span><br></pre></td></tr></table></figure>
+<p>这是一个发布的函数。<code>topic</code> 指的是你想要发布到的主题， <code>message</code> 指的是你想要发布的内容。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.publish(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>,<span class="string">&#x27;Hello World !&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p><del>我是觉得使用率比较高的就是这几个了，学生党蒟蒻，大佬欢迎提问</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>微信小程序开发是比较方便的，但是因为它并不是直接运行在系统底层上的程序，所以会受到子程序微信的一定限制，程序的功能实现就没有那么方便。</p>
+<p>完结撒花~~~</p>
+<p>欢迎各位大佬在评论区提出观点~~~</p>
 
         </div>
 
@@ -302,29 +331,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/03/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">微信小程序开发笔记</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/02/13/%E5%A6%82%E4%BD%95Arduino-Mega-2560-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E9%97%A8%E9%94%81/"
+                           href="/2021/03/05/%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-1-Wsl-2/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">如何Arduino Mega 2560 实现一个家庭智能安防门锁?</span>
+                                <span class="post-nav-title-item">个人环境简介 NO.1 - Wsl 2</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -530,7 +544,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-1-Wsl-2"><span class="nav-number">1.</span> <span class="nav-text">个人环境简介 NO.1 - Wsl 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WSL-%E6%98%AF%E4%B8%AA%E5%95%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">WSL 是个啥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85-WSL-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">如何安装 WSL 2</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">微信小程序开发笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Viscual-Studio-Code-%E6%8F%92%E4%BB%B6%E5%87%86%E5%A4%87"><span class="nav-number">1.2.</span> <span class="nav-text">Viscual Studio Code 插件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Mqtt%E5%8D%8F%E8%AE%AE%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%89%A9%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0"><span class="nav-number">1.3.</span> <span class="nav-text">使用Mqtt协议连接阿里云物联网平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B2%E5%87%A0%E4%B8%AAmqtt%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">讲几个mqtt常用的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mqtt-connect"><span class="nav-number">1.4.1.</span> <span class="nav-text">mqtt.connect()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-subscribe"><span class="nav-number">1.4.2.</span> <span class="nav-text">client.subscribe()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client-publish"><span class="nav-number">1.4.3.</span> <span class="nav-text">client.publish()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
