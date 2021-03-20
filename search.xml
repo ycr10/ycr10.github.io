@@ -163,7 +163,7 @@
 <li>微信开发者工具</li>
 <li>Visual Studio Code  <del>(我觉得微信开发者工具太丑了，还是用vscode吧)</del></li>
 </ol>
-<h2 id="Viscual-Studio-Code-插件准备"><a href="#Viscual-Studio-Code-插件准备" class="headerlink" title="Viscual Studio Code 插件准备"></a>Viscual Studio Code 插件准备</h2><ol>
+<h2 id="Visual-Studio-Code-插件准备"><a href="#Visual-Studio-Code-插件准备" class="headerlink" title="Visual Studio Code 插件准备"></a>Visual Studio Code 插件准备</h2><ol>
 <li><p>小程序助手</p>
 <p>让vscode 提供对 .wxss .wxml 文件后缀的支持</p>
 </li>
