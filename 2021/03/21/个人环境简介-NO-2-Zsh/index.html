@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="YCR">
+    
+    <title>
+        
+            个人环境简介 NO.2 - Zsh |
+        
+        Ycr&#39;s Blog
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"ycr10.xyz","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/logo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"“喜欢你的人一直有空，什么都懂，无所不能。”"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.0"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Ycr's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Ycr&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://space.bilibili.com/474149759"
+                            >
+                                BILIBILI
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/474149759">BILIBILI</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Links">友链</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">个人环境简介 NO.2 - Zsh</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">YCR</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-21 17:38:43
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B/">环境简介</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83/">系统环境</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="个人环境简介-NO-2-Zsh"><a href="#个人环境简介-NO-2-Zsh" class="headerlink" title="个人环境简介 NO.2 - Zsh"></a>个人环境简介 NO.2 - Zsh</h1><p>用 <code>Shell</code> 的各位同志们，你们现在用的都是什么shell呢？是 <code>Bash</code> 还是 <code>Zsh</code> ？</p>
+<p>目前常用的 <code>Linux</code> 系统和 <code>OS X</code> 系统的默认 <code>Shell</code> 都是 <code>bash</code> 。但是 <code>Zsh</code> 的配置实在是麻烦。所以这里我使用一个和好用又方便的开源软件 <a target="_blank" rel="noopener" href="https://ohmyz.sh/"><code>oh my zsh</code></a></p>
+<h2 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h2><ol>
+<li><p><code>Ubuntu Linux</code> 用户执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt install zsh</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Redhat Linux</code> 用户执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update &amp;&amp; sudo yum install zsh</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Windows</code> 用户</p>
+<p> 洗洗睡吧~ （或者可以使用 <code>Wsl</code> 试试，看看<a class="link"   target="_blank" rel="noopener" href="https://www.ycr10.xyz/2021/03/05/%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-1-Wsl-2/" >这篇文章<i class="fas fa-external-link-alt"></i></a>）</p>
+</li>
+</ol>
+<p>安装完成后设置当前用户使用 <code>zsh</code> ：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<p>根据提示输入当前用户的密码就可以了。</p>
+<p>安装成功打开 <code>Terminal</code> 就会出现下面这样 <del>（是不是很丑）</del></p>
+<p><img src="https://s3.ax1x.com/2021/03/16/6sZEo4.png" alt="1.png"></p>
+<h2 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh my zsh"></a>安装 <code>oh my zsh</code></h2><p>去 <code>oh my zsh</code> 官网寻找<a class="link"   target="_blank" rel="noopener" href="https://ohmyz.sh/#install" >下载命令<i class="fas fa-external-link-alt"></i></a></p>
+<p><del>PS：下载命令是 <code>raw.github.com</code> 大家懂的都懂</del></p>
+<h3 id="国内的下载方案："><a href="#国内的下载方案：" class="headerlink" title="国内的下载方案："></a>国内的下载方案：</h3><p><del>Gitee yyds</del></p>
+<ol>
+<li>首先下载安装命令</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>然后编辑下载命令</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ./install.sh</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default settings</span></span><br><span class="line">ZSH=<span class="variable">$&#123;ZSH:-~/.oh-my-zsh&#125;</span></span><br><span class="line">REPO=<span class="variable">$&#123;REPO:-ohmyzsh/ohmyzsh&#125;</span></span><br><span class="line">REMOTE=<span class="variable">$&#123;REMOTE:-https://github.com/<span class="variable">$&#123;REPO&#125;</span>.git&#125;</span></span><br><span class="line">BRANCH=<span class="variable">$&#123;BRANCH:-master&#125;</span> </span><br></pre></td></tr></table></figure>
+<p>改成</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Default settings</span></span><br><span class="line">ZSH=<span class="variable">$&#123;ZSH:-~/.oh-my-zsh&#125;</span></span><br><span class="line">REPO=<span class="variable">$&#123;REPO:-oh-my-zsh&#125;</span></span><br><span class="line">REMOTE=<span class="variable">$&#123;REMOTE:-https://gitee.com/mirrors/<span class="variable">$&#123;REPO&#125;</span>.git&#125;</span></span><br><span class="line">BRANCH=<span class="variable">$&#123;BRANCH:-master&#125;</span> </span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>然后给权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./install.sh</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>运行</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./intall.sh</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>出现下图即为安装成功</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/16/6smzJH.png" alt="2.png"></p>
+<h2 id="配置主题-powerlevel10k"><a href="#配置主题-powerlevel10k" class="headerlink" title="配置主题 powerlevel10k"></a>配置主题 <code>powerlevel10k</code></h2><p>这里我用的是 <code>powerlevel10k</code></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k" >Github<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://gitee.com/romkatv/powerlevel10k" >Gitee<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+<p><code>github.com</code>大家如果觉得慢的换 <code>gitee.com</code></p>
+<p><del>Gitee yyds</del></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+<h3 id="配置-zshrc"><a href="#配置-zshrc" class="headerlink" title="配置 ~/.zshrc"></a>配置 <code>~/.zshrc</code></h3><p>进入编辑模式，编辑 <code>ZSH_THEME=&quot;&quot;</code> ，改成 <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code>，重新加载，即可载入主题。</p>
+<h3 id="修改字体"><a href="#修改字体" class="headerlink" title="修改字体"></a>修改字体</h3><p>因为 <code>powerlevel10k</code> <del>(下文简称 <code>p10k</code> )</del> 有很多奇奇怪怪的字符，所以要配置字体。然而官方给的字体文件是放在 <code>raw.github.com</code> 的，所以…… <del>懂的都懂</del></p>
+<p>自己去网上下一个就好了~</p>
+<h3 id="修改-Windows-Terminal-字体设置"><a href="#修改-Windows-Terminal-字体设置" class="headerlink" title="修改 Windows Terminal 字体设置"></a>修改 <code>Windows Terminal</code> 字体设置</h3><ol>
+<li><p>打开 <code>Windows Terminal Setting</code></p>
+<p> <img src="https://s3.ax1x.com/2021/03/16/6s7NeU.png" alt="3.png"></p>
+</li>
+<li><p>在你想要添加字体设置的终端配置下添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;fontFace&quot;: &quot;MesloLGS NF&quot;</span><br></pre></td></tr></table></figure>
+<p> 以我的为例，添加完后的配置为：</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;GUID&#125;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Ubuntu-20.04&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;source&quot;</span>: <span class="string">&quot;Windows.Terminal.Wsl&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;MesloLGS NF&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后就可以正常显示了。</p>
+</li>
+</ol>
+<h3 id="p10k-configure"><a href="#p10k-configure" class="headerlink" title="p10k configure"></a><code>p10k configure</code></h3><p>这是 <code>powerlevel10k</code> 的一个配置命令，在你首次打开他的时候会自动运行。开始是几个字符。用来检测你的字体是否正常，而后面你就可以根据自己的喜好来调整个性化设置。</p>
+<p>这里就放一张我自己配置完后的图给大家看看吧</p>
+<p><img src="https://s3.ax1x.com/2021/03/16/6sb7dS.png" alt="4.png"></p>
+<h2 id="oh-my-zsh-插件配置"><a href="#oh-my-zsh-插件配置" class="headerlink" title="oh my zsh 插件配置"></a><code>oh my zsh</code> 插件配置</h2><p><code>oh my zsh</code> 的好处有很多，插件就是一个好处。这里我推荐几个我用得比较顺手的。</p>
+<p><del>PS：中国大陆的同志们，如果发现 <code>Github</code> 被墙了的话，可以上 <code>Gitee</code> 碰碰运气。</del></p>
+<h3 id="1-git"><a href="#1-git" class="headerlink" title="1. git"></a>1. <code>git</code></h3><p>这个插件对使用git的同志们十分的友好，<code>oh my zsh</code> 已经默认开启了。</p>
+<h3 id="2-z"><a href="#2-z" class="headerlink" title="2. z"></a>2. <code>z</code></h3><p>这个插件是用来记录自己的历史记录的。 <code>oh my zsh</code> 已经默认安装了，需要自行开启。</p>
+<h3 id="3-zsh-autosuggestions"><a href="#3-zsh-autosuggestions" class="headerlink" title="3. zsh-autosuggestions"></a>3. <code>zsh-autosuggestions</code></h3><p>这个插件是用来记录你的命令历史记录的。用着真的非常舒服。有时候自己忘掉的命令TA都帮你记着，多方便啊！<del>省了一个百度的时间。</del></p>
+<p>安装方式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<h3 id="4-zsh-syntax-highlighting"><a href="#4-zsh-syntax-highlighting" class="headerlink" title="4. zsh-syntax-highlighting"></a>4. <code>zsh-syntax-highlighting</code></h3><p><code>Linux</code> 的命令太多了，有时候命令记得不清楚，这个插件就会非常方便的告诉你正确与否。（正确绿色，错误红色）<del>真好啊，又省了一个百度的时间。</del></p>
+<p>安装方式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h3 id="5-sudo"><a href="#5-sudo" class="headerlink" title="5. sudo"></a>5. <code>sudo</code></h3><p><code>Linux</code> 上权限区分的比较详细，我们日常为了安全起见，比较少用 <code>root</code> 这样的超级用户办事，而不少命令都需要我们升级权限执行。而我们又经常忘记这件事。这个插件就给了我们很好的救济。只需打两下 <code>ESC</code> ，就会自动在命令的前面给你加上 <code>sudo</code> 。<del>多好啊，又少了一个按方向键的时间。</del></p>
+<p><code>oh my zsh</code> 已经预装了这个插件，需要用户自行启用。</p>
+<h3 id="修改-zshrc"><a href="#修改-zshrc" class="headerlink" title="修改 ./.zshrc"></a>修改 <code>./.zshrc</code></h3><p>用编辑器打开 <code>./.zshrc</code> ，编辑 <code>plugins</code></p>
+<p>编辑完成后，记得重新加载下配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ./.zshrc</span><br></pre></td></tr></table></figure>
+<p>我的插件最终配置为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plugins&#x3D;(</span><br><span class="line">git</span><br><span class="line">sudo</span><br><span class="line">z</span><br><span class="line">zsh-syntax-highlighting</span><br><span class="line">zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>插件配置完了， <code>oh my zsh</code> 也就差不多了。接下来就可以体验最丝滑又美丽的终端了，再也不用忍 <code>Windows</code> 那丑得……的终端了</p>
+<p><del>完结撒花</del></p>
+<p>欢迎大佬在评论区提出观点或者指正错误~</p>
+<p>(由于写本篇博客的时候，学校的微软服务全都被墙， <code>Github</code> 未能幸免，所以文中演示的下载都是使用一些奇怪下载方式。)</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">微信小程序开发笔记</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'hGzCvE6RESemcTo8gfkul9hV-gzGzoHsz',
+                    appKey: 'SSqOtE9IVhhPOk8oXCi6KjEV',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 尽情吐槽吧~',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'YCR';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">YCR</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.0</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-2-Zsh"><span class="nav-number">1.</span> <span class="nav-text">个人环境简介 NO.2 - Zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85zsh"><span class="nav-number">1.1.</span> <span class="nav-text">安装zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-oh-my-zsh"><span class="nav-number">1.2.</span> <span class="nav-text">安装 oh my zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E7%9A%84%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">1.2.1.</span> <span class="nav-text">国内的下载方案：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98-powerlevel10k"><span class="nav-number">1.3.</span> <span class="nav-text">配置主题 powerlevel10k</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-zshrc"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置 ~&#x2F;.zshrc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-Windows-Terminal-%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.4.</span> <span class="nav-text">修改 Windows Terminal 字体设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p10k-configure"><span class="nav-number">1.3.5.</span> <span class="nav-text">p10k configure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh-%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">oh my zsh 插件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-git"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-z"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. z</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-zsh-autosuggestions"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. zsh-autosuggestions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-zsh-syntax-highlighting"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. zsh-syntax-highlighting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-sudo"><span class="nav-number">1.4.5.</span> <span class="nav-text">5. sudo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-zshrc"><span class="nav-number">1.4.6.</span> <span class="nav-text">修改 .&#x2F;.zshrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.0/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
