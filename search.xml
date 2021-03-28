@@ -121,9 +121,9 @@
 </ol>
 <p><img src="https://s3.ax1x.com/2021/03/03/6EPih6.png" alt="启用或关闭Windows功能"></p>
 <ol start="2">
-<li>打开 <code>适用于 Linux 的 Windows 子系统</code> </li>
+<li>打开 <code>适用于 Linux 的 Windows 子系统</code> 和 <code>虚拟机平台</code></li>
 </ol>
-<p><img src="https://s3.ax1x.com/2021/03/05/6mBJ58.png" alt="适用于 Linux 的 Windows 子系统"></p>
+<p><img src="https://z3.ax1x.com/2021/03/28/cpZ7EF.png" alt="适用于 Linux 的 Windows 子系统、虚拟机平台"></p>
 <ol start="3">
 <li>打开 <code>Microsoft Store</code> 下载安装 <code>Ubuntu 20.04</code> 应用</li>
 </ol>
@@ -232,7 +232,8 @@
   <entry>
     <title>如何使用 Arduino Mega 2560 实现一个家庭智能安防门锁?</title>
     <url>/2021/02/13/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Arduino-Mega-2560-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E5%AE%89%E9%98%B2%E9%97%A8%E9%94%81%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="如何使用-Arduino-Mega-2560-实现一个家庭智能安防门锁？"><a href="#如何使用-Arduino-Mega-2560-实现一个家庭智能安防门锁？" class="headerlink" title="如何使用 Arduino Mega 2560 实现一个家庭智能安防门锁？"></a>如何使用 Arduino Mega 2560 实现一个家庭智能安防门锁？</h1><h2 id="创作灵感"><a href="#创作灵感" class="headerlink" title="创作灵感"></a>创作灵感</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;新冠肺炎疫情发生以来，习近平总书记高度重视，多次主持召开会议对疫情防控工作进行研究部署，并对如何发挥社区在疫情防控中的作用提出明确要求。习近平总书记指出，要压实地方党委和政府责任，强化社区防控网格化管理，实施地毯式排查，采取更加严格、更有针对性、更加管用有效的措施，防止疫情蔓延。</p>
+    <content><![CDATA[<h1 id="如何使用-Arduino-Mega-2560-实现一个家庭智能安防门锁？"><a href="#如何使用-Arduino-Mega-2560-实现一个家庭智能安防门锁？" class="headerlink" title="如何使用 Arduino Mega 2560 实现一个家庭智能安防门锁？"></a>如何使用 Arduino Mega 2560 实现一个家庭智能安防门锁？</h1><p>说明视频见我的 <a class="link"   href="https://www.bilibili.com/video/BV1bp4y1x7Sj" >Bilibili<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="创作灵感"><a href="#创作灵感" class="headerlink" title="创作灵感"></a>创作灵感</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;新冠肺炎疫情发生以来，习近平总书记高度重视，多次主持召开会议对疫情防控工作进行研究部署，并对如何发挥社区在疫情防控中的作用提出明确要求。习近平总书记指出，要压实地方党委和政府责任，强化社区防控网格化管理，实施地毯式排查，采取更加严格、更有针对性、更加管用有效的措施，防止疫情蔓延。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;本人以社区和家庭疫情防控为出发点，设计了一款智慧防疫门禁系统。本次设计的作品能够实现刷卡，蓝牙开锁等方式开启家庭门锁，同时实时监测人的体温，贴心的提示外出回家的人员消毒。防止体温过热人员回家接触家人，造成病情蔓延。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;这样一个可以让人们在享受智慧家居便利性的同时，又能监测健康状况的智慧防疫门禁系统，能够很好地配合社区疫情防控，做好家庭防疫工作。</p>
 <h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><p>&nbsp; &nbsp; &nbsp; &nbsp;这是一种无接触式的门锁，自然就要用到现在成熟的无线技术了。在这种小型门锁中，蓝牙技术再好不过了。再利用<code>RFID-RC522</code>模块，也能实现NFC通信。</p>
