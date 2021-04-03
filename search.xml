@@ -196,7 +196,7 @@
 <p><del>屑腾讯</del></p>
 <h2 id="使用Mqtt协议连接阿里云物联网平台"><a href="#使用Mqtt协议连接阿里云物联网平台" class="headerlink" title="使用Mqtt协议连接阿里云物联网平台"></a>使用Mqtt协议连接阿里云物联网平台</h2><p>要在微信小程序中使用 <code>websocket</code> 就必须遵守 <del>腾讯</del> 的规则。</p>
 <blockquote>
-<p>1.不能使用特殊的端口，仅可使用 <code>443</code> 端口，即 <code>https</code> 端口进行通信。<br>2.连接的host地址前要加 <code>wss://</code> 且不能在后面加端口号。（如 <code>mqtt.ycr10.xyz</code> 写成 <code>wss://mqtt.ycr10.xyz</code> ，而不能写成 <code> wss://matt.ycr10.xyz:443</code> ）</p>
+<p>1.不能使用特殊的端口，仅可使用 <code>443</code> 端口，即 <code>https</code> 端口进行通信。<br>2.连接的host地址前要加 <code>wss://</code> 且不能在后面加端口号。（如 <code>mqtt.ycr10.xyz</code> 写成 <code>wss://mqtt.ycr10.xyz</code> ，而不能写成 <code> wss://mqtt.ycr10.xyz:443</code> ）</p>
 </blockquote>
 <h2 id="讲几个mqtt常用的函数"><a href="#讲几个mqtt常用的函数" class="headerlink" title="讲几个mqtt常用的函数"></a>讲几个mqtt常用的函数</h2><p>了解了 <code>host</code>规则后，就要开始正式连接了。</p>
 <p>这里我使用的是广为人知的 <a href="https://github.com/mqttjs/MQTT.js/"><code>MQTT.js</code></a> 库，这是出了名的好用。</p>
