@@ -196,6 +196,25 @@
     <ul class="friends-link-list">
         
             <li class="friends-link-item">
+                <a href="https://ycr10.xyz/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://ycr10.xyz/images/avatar.jpg"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">Ycr’s Blog</div>
+                            <div class="description ellipsis">喜欢你的人一直有空，什么都懂，无所不能。</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
                 <a target="_blank" rel="noopener" href="https://doubeecat.xyz/">
                     <div class="content">
                         <div class="avatar radius">
@@ -209,6 +228,63 @@
                         <div class="info">
                             <div class="name ellipsis">Doubeecat&#39;s Blog</div>
                             <div class="description ellipsis">即便前路混沌，同她走过，才算人间。</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="http://xdfz2019ec.com/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://ycr10.xyz/images/xdfz2019ec.ico"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">云中锦书</div>
+                            <div class="description ellipsis">厦大附中2019级实验班论坛</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="http://luming.xdfz2019ec.com/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://ycr10.xyz/images/luming.ico"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">鹿鸣报</div>
+                            <div class="description ellipsis">厦大附中2019级实验班班报</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://vimday.com/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/vimday/picx@master/20210409/logo.34fh6kf1rto0.png"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">DayDream</div>
+                            <div class="description ellipsis">一个小入门程序员的学习之路</div>
                         </div>
                     </div>
                 </a>
@@ -233,44 +309,6 @@
                 </a>
             </li>
         
-            <li class="friends-link-item">
-                <a target="_blank" rel="noopener" href="http://xdfz2019ec.com/">
-                    <div class="content">
-                        <div class="avatar radius">
-                            
-                                <img class="radius"
-                                     src="http://www.xdfz2019ec.com/favicon.ico"
-                                     onerror="this.style.display='none'"
-                                >
-                            
-                        </div>
-                        <div class="info">
-                            <div class="name ellipsis">云中锦书</div>
-                            <div class="description ellipsis">厦大附中2019级实验班论坛</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        
-            <li class="friends-link-item">
-                <a target="_blank" rel="noopener" href="http://luming.xdfz2019ec.com/">
-                    <div class="content">
-                        <div class="avatar radius">
-                            
-                                <img class="radius"
-                                     src="http://luming.xdfz2019ec.com/luming.ico"
-                                     onerror="this.style.display='none'"
-                                >
-                            
-                        </div>
-                        <div class="info">
-                            <div class="name ellipsis">鹿鸣报</div>
-                            <div class="description ellipsis">厦大附中2019级实验班班报</div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        
     </ul>
     <div class="clear"></div>
 </div>
@@ -283,6 +321,83 @@
             
         </div>
         <div class="page-template-comments">
+            
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'hGzCvE6RESemcTo8gfkul9hV-gzGzoHsz',
+                    appKey: 'SSqOtE9IVhhPOk8oXCi6KjEV',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 尽情吐槽吧~',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'YCR';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
             
         </div>
     </div>

@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>题解 P2952 ([USACO09OPEN]Cow Line S)</title>
-    <url>/2021/02/12/%E9%A2%98%E8%A7%A3-P2952-USACO09OPEN-Cow-Line-S/</url>
-    <content><![CDATA[<h2 id="题解-P2952-USACO09OPEN-Cow-Line-S"><a href="#题解-P2952-USACO09OPEN-Cow-Line-S" class="headerlink" title="题解 P2952 ([USACO09OPEN]Cow Line S)"></a>题解 P2952 ([USACO09OPEN]Cow Line S)</h2><p><del>这是一位萌新的第一篇题解,求关照qwq</del></p>
-<p><a class="link"   href="https://www.luogu.com.cn/problem/P2952" >题目传送门<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="解法由来"><a href="#解法由来" class="headerlink" title="解法由来"></a>解法由来</h2><p>这一题当然是<del>直接使用</del>deque啦</p>
-<p>（不会deque的蒟蒻</p>
-<p>那就用vector暴力模拟！</p>
-<h3 id="vector简介"><a href="#vector简介" class="headerlink" title="vector简介"></a>vector简介</h3><p>头文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure>
-<p>创建一个vertor对象</p>
-<p>类型有很多种 char int string 等等</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; v;</span><br></pre></td></tr></table></figure>
-<p><del>看到这里，你应该会有疑问</del></p>
-<p>怎么访问vector函数中的一个数呢？</p>
-<p>有俩种实现方式</p>
-<p>1.直接下标访问 就像int型数组一样</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">…… &#x2F;&#x2F;省略头文件以及定义(雾</span><br><span class="line">cout&lt;&lt;v[i];</span><br></pre></td></tr></table></figure>
-<p>2.迭代器访问 <del>一种很简洁的访问方式</del></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt;::iterator it;</span><br><span class="line">for(it&#x3D;vec.begin();it!&#x3D;vec.end();it++) cout&lt;&lt;*it&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
-<h2 id="来说说这题吧"><a href="#来说说这题吧" class="headerlink" title="来说说这题吧"></a>来说说这题吧</h2><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>首先，这需要用一个vector类型的数组来记录。</p>
-<p>遇到’AL’ 就左边加</p>
-<p>遇到’AR’ 就右边加</p>
-<p><del>添加的函数详情看代码注释</del></p>
-<p>以此类推</p>
-<p>最后，再用迭代器或者for循环语句输出不就<del>完美</del>了？？</p>
-<h2 id="淦代码"><a href="#淦代码" class="headerlink" title="淦代码"></a><del>淦代码</del></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; //本篇重点 vector头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; <span class="comment">// 模板中的头文件(不要问我为什么不用万能头</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b; <span class="comment">//先定义个数组啊</span></span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>,s,k;</span><br><span class="line"><span class="keyword">char</span> a;        <span class="comment">//一些辅助的数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="comment">//荒废n久的快读</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	ll f=<span class="number">1</span>,s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)f=<span class="number">-1</span>,c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+c<span class="number">-48</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f*s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s; <span class="comment">//先读入S</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s;i++) <span class="comment">//开始循环</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="string">&#x27;A&#x27;</span>) <span class="comment">//进入</span></span><br><span class="line">		&#123;</span><br><span class="line">			sum++;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>) b.insert(b.begin(),sum); <span class="comment">//如果是在左边加，就用insert函数加入</span></span><br><span class="line">			<span class="keyword">else</span> b.push_back(sum); <span class="comment">//或者在右边，用push_back函数加入</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">//否则</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;k;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>)b.erase(b.begin(),b.begin()+k); <span class="comment">//如果是在左边删k个，就用erase函数+迭代器</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++) b.pop_back(); <span class="comment">//否则在右边，就用循环+pop_back函数</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;b.size();i++) <span class="built_in">cout</span>&lt;&lt;b[i]&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出~</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//记得擦屁股~养成良好习惯~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><del>看，这不就淦完了？</del></p>
-<p> 各位大佬有什么意见，欢迎评论QWQ</p>
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>寄生虫 影评摘录</title>
     <url>/2021/02/13/%E5%AF%84%E7%94%9F%E8%99%AB-%E5%BD%B1%E8%AF%84%E6%91%98%E5%BD%95/</url>
     <content><![CDATA[<h1 id="寄生虫-影评摘录"><a href="#寄生虫-影评摘录" class="headerlink" title="寄生虫-影评摘录"></a>寄生虫-影评摘录</h1><p>来自<a class="link"   href="https://space.bilibili.com/3433092" >@狂阿弥_<i class="fas fa-external-link-alt"></i></a>的<a class="link"   href="https://www.bilibili.com/video/BV16t411g7aF" >视频<i class="fas fa-external-link-alt"></i></a>。</p>
@@ -153,80 +114,6 @@
       </categories>
       <tags>
         <tag>系统环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序开发笔记</title>
-    <url>/2021/03/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="微信小程序开发笔记"><a href="#微信小程序开发笔记" class="headerlink" title="微信小程序开发笔记"></a>微信小程序开发笔记</h1><p>我最近正在研究一个有关于手机监控的系统，就想到了用微信小程序来作为手机端与其他的硬件进行通信。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
-<li>微信开发者工具</li>
-<li>Visual Studio Code  <del>(我觉得微信开发者工具太丑了，还是用vscode吧)</del></li>
-</ol>
-<h2 id="Visual-Studio-Code-插件准备"><a href="#Visual-Studio-Code-插件准备" class="headerlink" title="Visual Studio Code 插件准备"></a>Visual Studio Code 插件准备</h2><ol>
-<li><p>小程序助手</p>
-<p>让vscode 提供对 .wxss .wxml 文件后缀的支持</p>
-</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/14/606LUe.png" alt="1.png"></p>
-<ol start="2">
-<li><p>wxml</p>
-<p>高亮显示</p>
-</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/14/606Tu6.png" alt="2.png"></p>
-<ol start="3">
-<li><p>vscode weapp api</p>
-<p>小程序代码片段</p>
-</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/14/606Ijx.png" alt="3.png"></p>
-<p>这样多好看~</p>
-<p>放张图对比下</p>
-<ol>
-<li>微信开发者工具</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/14/60gQyt.png" alt="5.png"></p>
-<ol>
-<li>Visual Studio Code</li>
-</ol>
-<p><img src="https://s3.ax1x.com/2021/03/14/60glOP.png" alt="4.png"></p>
-<p>飞起来~</p>
-<p><del>(虽然调试还是得用微信开发者工具)</del></p>
-<p><del>屑腾讯</del></p>
-<h2 id="使用Mqtt协议连接阿里云物联网平台"><a href="#使用Mqtt协议连接阿里云物联网平台" class="headerlink" title="使用Mqtt协议连接阿里云物联网平台"></a>使用Mqtt协议连接阿里云物联网平台</h2><p>要在微信小程序中使用 <code>websocket</code> 就必须遵守 <del>腾讯</del> 的规则。</p>
-<blockquote>
-<p>1.不能使用特殊的端口，仅可使用 <code>443</code> 端口，即 <code>https</code> 端口进行通信。<br>2.连接的host地址前要加 <code>wss://</code> 且不能在后面加端口号。（如 <code>mqtt.ycr10.xyz</code> 写成 <code>wss://mqtt.ycr10.xyz</code> ，而不能写成 <code> wss://mqtt.ycr10.xyz:443</code> ）</p>
-</blockquote>
-<h2 id="讲几个mqtt常用的函数"><a href="#讲几个mqtt常用的函数" class="headerlink" title="讲几个mqtt常用的函数"></a>讲几个mqtt常用的函数</h2><p>了解了 <code>host</code>规则后，就要开始正式连接了。</p>
-<p>这里我使用的是广为人知的 <a href="https://github.com/mqttjs/MQTT.js/"><code>MQTT.js</code></a> 库，这是出了名的好用。</p>
-<p>这里简单讲几个常用的操作，如有错误欢迎评论区提出。<del>（我只是一个初二的蒟蒻）</del></p>
-<h3 id="mqtt-connect"><a href="#mqtt-connect" class="headerlink" title="mqtt.connect()"></a>mqtt.connect()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mqtt.connect(host,options)</span><br></pre></td></tr></table></figure>
-<p>这是一个连接函数，<code>host</code> 是连接服务器的网址， <code>options</code> 存放一些参数的。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">      connectTimeout: <span class="number">4000</span>,</span><br><span class="line">      clientId: <span class="string">&#x27;****|securemode=*,signmethod=****|&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的Mqtt-ClientID</span></span><br><span class="line">      port: <span class="number">443</span>, <span class="comment">// 端口号，似乎只能443</span></span><br><span class="line">      username: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的用户名</span></span><br><span class="line">      password: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的密码</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这些详细的配置可以看<a class="link"   href="https://help.aliyun.com/document_detail/86706.html?accounttraceid=939d8fae0d484be685d1f2a99cab9d70mmww" >阿里云的官方文档<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="client-subscribe"><a href="#client-subscribe" class="headerlink" title="client.subscribe()"></a>client.subscribe()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.subscribe(topic，&#123;</span><br><span class="line">   qos: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>这是一个订阅主题的函数， <code>topic</code> 是你要订阅的函数，后面还可以放一些拓展参数。</p>
-<p>注： <code>qos</code> 是MQTT设计的一套保证消息稳定传输的机制。</p>
-<p>例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.subscribe(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>, &#123;</span><br><span class="line">        qos: <span class="number">0</span></span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&quot;订阅成功&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="client-publish"><a href="#client-publish" class="headerlink" title="client.publish()"></a>client.publish()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.publish(topic,message)</span><br></pre></td></tr></table></figure>
-<p>这是一个发布的函数。<code>topic</code> 指的是你想要发布到的主题， <code>message</code> 指的是你想要发布的内容。</p>
-<p>例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.publish(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>,<span class="string">&#x27;Hello World !&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p><del>我是觉得使用率比较高的就是这几个了，学生党蒟蒻，大佬欢迎提问</del></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>微信小程序开发是比较方便的，但是因为它并不是直接运行在系统底层上的程序，所以会受到子程序微信的一定限制，程序的功能实现就没有那么方便。</p>
-<p>完结撒花~~~</p>
-<p>欢迎各位大佬在评论区提出观点~~~</p>
-]]></content>
-      <categories>
-        <category>微信小程序</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
-        <tag>开发笔记</tag>
-        <tag>MQTT</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -485,6 +372,80 @@
       </tags>
   </entry>
   <entry>
+    <title>微信小程序开发笔记</title>
+    <url>/2021/03/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="微信小程序开发笔记"><a href="#微信小程序开发笔记" class="headerlink" title="微信小程序开发笔记"></a>微信小程序开发笔记</h1><p>我最近正在研究一个有关于手机监控的系统，就想到了用微信小程序来作为手机端与其他的硬件进行通信。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>微信开发者工具</li>
+<li>Visual Studio Code  <del>(我觉得微信开发者工具太丑了，还是用vscode吧)</del></li>
+</ol>
+<h2 id="Visual-Studio-Code-插件准备"><a href="#Visual-Studio-Code-插件准备" class="headerlink" title="Visual Studio Code 插件准备"></a>Visual Studio Code 插件准备</h2><ol>
+<li><p>小程序助手</p>
+<p>让vscode 提供对 .wxss .wxml 文件后缀的支持</p>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/606LUe.png" alt="1.png"></p>
+<ol start="2">
+<li><p>wxml</p>
+<p>高亮显示</p>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/606Tu6.png" alt="2.png"></p>
+<ol start="3">
+<li><p>vscode weapp api</p>
+<p>小程序代码片段</p>
+</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/606Ijx.png" alt="3.png"></p>
+<p>这样多好看~</p>
+<p>放张图对比下</p>
+<ol>
+<li>微信开发者工具</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/60gQyt.png" alt="5.png"></p>
+<ol>
+<li>Visual Studio Code</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/03/14/60glOP.png" alt="4.png"></p>
+<p>飞起来~</p>
+<p><del>(虽然调试还是得用微信开发者工具)</del></p>
+<p><del>屑腾讯</del></p>
+<h2 id="使用Mqtt协议连接阿里云物联网平台"><a href="#使用Mqtt协议连接阿里云物联网平台" class="headerlink" title="使用Mqtt协议连接阿里云物联网平台"></a>使用Mqtt协议连接阿里云物联网平台</h2><p>要在微信小程序中使用 <code>websocket</code> 就必须遵守 <del>腾讯</del> 的规则。</p>
+<blockquote>
+<p>1.不能使用特殊的端口，仅可使用 <code>443</code> 端口，即 <code>https</code> 端口进行通信。<br>2.连接的host地址前要加 <code>wss://</code> 且不能在后面加端口号。（如 <code>mqtt.ycr10.xyz</code> 写成 <code>wss://mqtt.ycr10.xyz</code> ，而不能写成 <code> wss://mqtt.ycr10.xyz:443</code> ）</p>
+</blockquote>
+<h2 id="讲几个mqtt常用的函数"><a href="#讲几个mqtt常用的函数" class="headerlink" title="讲几个mqtt常用的函数"></a>讲几个mqtt常用的函数</h2><p>了解了 <code>host</code>规则后，就要开始正式连接了。</p>
+<p>这里我使用的是广为人知的 <a href="https://github.com/mqttjs/MQTT.js/"><code>MQTT.js</code></a> 库，这是出了名的好用。</p>
+<p>这里简单讲几个常用的操作，如有错误欢迎评论区提出。<del>（我只是一个初二的蒟蒻）</del></p>
+<h3 id="mqtt-connect"><a href="#mqtt-connect" class="headerlink" title="mqtt.connect()"></a>mqtt.connect()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mqtt.connect(host,options)</span><br></pre></td></tr></table></figure>
+<p>这是一个连接函数，<code>host</code> 是连接服务器的网址， <code>options</code> 存放一些参数的。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">      connectTimeout: <span class="number">4000</span>,</span><br><span class="line">      clientId: <span class="string">&#x27;****|securemode=*,signmethod=****|&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的Mqtt-ClientID</span></span><br><span class="line">      port: <span class="number">443</span>, <span class="comment">// 端口号，似乎只能443</span></span><br><span class="line">      username: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的用户名</span></span><br><span class="line">      password: <span class="string">&#x27;****&#x27;</span>, <span class="comment">// 这是你的阿里云物联网平台的密码</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这些详细的配置可以看<a class="link"   href="https://help.aliyun.com/document_detail/86706.html?accounttraceid=939d8fae0d484be685d1f2a99cab9d70mmww" >阿里云的官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="client-subscribe"><a href="#client-subscribe" class="headerlink" title="client.subscribe()"></a>client.subscribe()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.subscribe(topic，&#123;</span><br><span class="line">   qos: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这是一个订阅主题的函数， <code>topic</code> 是你要订阅的函数，后面还可以放一些拓展参数。</p>
+<p>注： <code>qos</code> 是MQTT设计的一套保证消息稳定传输的机制。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.subscribe(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>, &#123;</span><br><span class="line">        qos: <span class="number">0</span></span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&quot;订阅成功&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="client-publish"><a href="#client-publish" class="headerlink" title="client.publish()"></a>client.publish()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.publish(topic,message)</span><br></pre></td></tr></table></figure>
+<p>这是一个发布的函数。<code>topic</code> 指的是你想要发布到的主题， <code>message</code> 指的是你想要发布的内容。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">client.publish(<span class="string">&#x27;/miniprogram/user/Text&#x27;</span>,<span class="string">&#x27;Hello World !&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><del>我是觉得使用率比较高的就是这几个了，学生党蒟蒻，大佬欢迎提问</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>微信小程序开发是比较方便的，但是因为它并不是直接运行在系统底层上的程序，所以会受到子程序微信的一定限制，程序的功能实现就没有那么方便。</p>
+<p>完结撒花~~~</p>
+<p>欢迎各位大佬在评论区提出观点~~~</p>
+]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+        <tag>开发笔记</tag>
+        <tag>MQTT</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>个人环境简介 NO.2 - Zsh</title>
     <url>/2021/03/21/%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E7%AE%80%E4%BB%8B-NO-2-Zsh/</url>
     <content><![CDATA[<h1 id="个人环境简介-NO-2-Zsh"><a href="#个人环境简介-NO-2-Zsh" class="headerlink" title="个人环境简介 NO.2 - Zsh"></a>个人环境简介 NO.2 - Zsh</h1><p>用 <code>Shell</code> 的各位同志们，你们现在用的都是什么shell呢？是 <code>Bash</code> 还是 <code>Zsh</code> ？</p>
@@ -582,6 +543,45 @@
       </categories>
       <tags>
         <tag>系统环境</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>题解 P2952 ([USACO09OPEN]Cow Line S)</title>
+    <url>/2021/02/12/%E9%A2%98%E8%A7%A3-P2952-USACO09OPEN-Cow-Line-S/</url>
+    <content><![CDATA[<h2 id="题解-P2952-USACO09OPEN-Cow-Line-S"><a href="#题解-P2952-USACO09OPEN-Cow-Line-S" class="headerlink" title="题解 P2952 ([USACO09OPEN]Cow Line S)"></a>题解 P2952 ([USACO09OPEN]Cow Line S)</h2><p><del>这是一位萌新的第一篇题解,求关照qwq</del></p>
+<p><a class="link"   href="https://www.luogu.com.cn/problem/P2952" >题目传送门<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="解法由来"><a href="#解法由来" class="headerlink" title="解法由来"></a>解法由来</h2><p>这一题当然是<del>直接使用</del>deque啦</p>
+<p>（不会deque的蒟蒻</p>
+<p>那就用vector暴力模拟！</p>
+<h3 id="vector简介"><a href="#vector简介" class="headerlink" title="vector简介"></a>vector简介</h3><p>头文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure>
+<p>创建一个vertor对象</p>
+<p>类型有很多种 char int string 等等</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; v;</span><br></pre></td></tr></table></figure>
+<p><del>看到这里，你应该会有疑问</del></p>
+<p>怎么访问vector函数中的一个数呢？</p>
+<p>有俩种实现方式</p>
+<p>1.直接下标访问 就像int型数组一样</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">…… &#x2F;&#x2F;省略头文件以及定义(雾</span><br><span class="line">cout&lt;&lt;v[i];</span><br></pre></td></tr></table></figure>
+<p>2.迭代器访问 <del>一种很简洁的访问方式</del></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt;::iterator it;</span><br><span class="line">for(it&#x3D;vec.begin();it!&#x3D;vec.end();it++) cout&lt;&lt;*it&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<h2 id="来说说这题吧"><a href="#来说说这题吧" class="headerlink" title="来说说这题吧"></a>来说说这题吧</h2><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>首先，这需要用一个vector类型的数组来记录。</p>
+<p>遇到’AL’ 就左边加</p>
+<p>遇到’AR’ 就右边加</p>
+<p><del>添加的函数详情看代码注释</del></p>
+<p>以此类推</p>
+<p>最后，再用迭代器或者for循环语句输出不就<del>完美</del>了？？</p>
+<h2 id="淦代码"><a href="#淦代码" class="headerlink" title="淦代码"></a><del>淦代码</del></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; //本篇重点 vector头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; <span class="comment">// 模板中的头文件(不要问我为什么不用万能头</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b; <span class="comment">//先定义个数组啊</span></span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>,s,k;</span><br><span class="line"><span class="keyword">char</span> a;        <span class="comment">//一些辅助的数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="comment">//荒废n久的快读</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	ll f=<span class="number">1</span>,s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)f=<span class="number">-1</span>,c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))</span><br><span class="line">	&#123;</span><br><span class="line">		s=(s&lt;&lt;<span class="number">3</span>)+(s&lt;&lt;<span class="number">1</span>)+c<span class="number">-48</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f*s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s; <span class="comment">//先读入S</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s;i++) <span class="comment">//开始循环</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="string">&#x27;A&#x27;</span>) <span class="comment">//进入</span></span><br><span class="line">		&#123;</span><br><span class="line">			sum++;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>) b.insert(b.begin(),sum); <span class="comment">//如果是在左边加，就用insert函数加入</span></span><br><span class="line">			<span class="keyword">else</span> b.push_back(sum); <span class="comment">//或者在右边，用push_back函数加入</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="comment">//否则</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;k;</span><br><span class="line">			<span class="keyword">if</span>(a==<span class="string">&#x27;L&#x27;</span>)b.erase(b.begin(),b.begin()+k); <span class="comment">//如果是在左边删k个，就用erase函数+迭代器</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++) b.pop_back(); <span class="comment">//否则在右边，就用循环+pop_back函数</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;b.size();i++) <span class="built_in">cout</span>&lt;&lt;b[i]&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出~</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//记得擦屁股~养成良好习惯~</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><del>看，这不就淦完了？</del></p>
+<p> 各位大佬有什么意见，欢迎评论QWQ</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>题解</tag>
       </tags>
   </entry>
 </search>
